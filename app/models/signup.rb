@@ -1,0 +1,14 @@
+class Signup < ApplicationRecord
+    belongs_to :camper 
+    belongs_to :activity
+
+    validates :time, numericality: {greater_than_or_equal_to: 0, less_than: 24}
+
+    def activity_name
+        self.activity.name
+      end
+    
+      def activity_diffculty
+        self.activity.difficulty
+      end
+end
